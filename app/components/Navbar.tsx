@@ -20,8 +20,8 @@ const Navbar = () => {
                 redirect: false,
                 callbackUrl: "/"
             });
-            setIsLoggingOut(false)
             router.refresh();
+            setIsLoggingOut(false);
             router.push("/");
         } catch (error) {
             // Add fail state toast
@@ -31,7 +31,7 @@ const Navbar = () => {
     }
 
     return (
-        <nav className="flex flex-row items-center justify-between flex-wrap max-w-4xl h-16 mx-auto px-4 py-2">
+        <nav className="flex flex-row items-center justify-between flex-wrap max-w-5xl h-16 mx-auto px-4 py-2">
             <h1 className="font-semibold text-3xl font-roboto tracking-tight hover:text-emerald-600 transition-colors duration-200">
                 <Link href="/">JobListing</Link>
             </h1>
@@ -43,7 +43,7 @@ const Navbar = () => {
                         <Link href="/dashboard" className="text-sm hover:text-emerald-500 transition-colors duration-200">Dashboard</Link>
                         <button onClick={logoutAndRefresh} disabled={isLoggingOut} className="text-red-400 text-sm hover:text-red-300 transition-colors duration-200 cursor-pointer disabled:opacity-50 disabled:pointer-events-none">Logout</button>
                         <div className="flex items-center gap-2 bg-emerald-700 pr-2 rounded-full">
-                            <Image src={session.user?.image || NoUserImage} alt="User Avatar" width={32} height={32} className="rounded-full" />
+                            <Image src={session.user?.image || NoUserImage} alt="User Avatar" width={30} height={30} className="rounded-full" />
                             <p className="text-sm">{session.user?.name}</p>
                         </div>
                     </>)

@@ -7,7 +7,7 @@ const JobsPage = async ({ searchParams }:
   const jobs = await fetchJobs(searchParameters);
 
   return (
-    <div className="flex flex-col justify-center gap-4 max-w-4xl mx-auto p-4">
+    <div className="flex flex-col justify-center gap-4 max-w-5xl mx-auto p-4">
       <div className="p-5 outline outline-gray-800 space-y-4 rounded-lg">
         <h2 className="text-xl font-semibold">Find a job</h2>
         <form className="flex flex-col gap-3">
@@ -44,7 +44,7 @@ const JobsPage = async ({ searchParams }:
               <span>•</span>
               <p className="text-xs">{job?.type.substring(0, 1).toLocaleUpperCase() + job?.type.substring(1)}</p>
             </div>
-            <Link href={`/jobs/${job.id}`} className="text-sm text-blue-500 underline underline-offset-1 hover:text-blue-400 transition-all duration-200 w-fit">More details</Link>
+            <Link href={`/jobs/${job.id}`} className="text-sm text-blue-500 hover:text-blue-400 transition-all duration-200 w-fit">More details</Link>
           </div>
         ))}
       </div>
