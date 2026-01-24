@@ -130,14 +130,12 @@ export const getJobById = async (id: string): Promise<jobWithPostedBy> => {
 };
 
 export const applyForJob = async (
-  jobId: string | undefined,
+  jobId: string,
 ): Promise<applicationResponse> => {
   const session = await auth();
   if (!session?.user || !session.user.id) {
     redirect("/auth/signin", RedirectType.replace);
   }
-
-  if (!jobId) notFound();
 
   const applicationRes = {} as applicationResponse;
 
@@ -166,7 +164,7 @@ export const applyForJob = async (
         status: "PENDING",
       },
     });
-    applicationRes.success = "Application submitted successfully.";
+    applicationRes.success = "Application submitted successfully!";
     return applicationRes;
   } catch (error) {
     console.error("Error applying for job:", error);

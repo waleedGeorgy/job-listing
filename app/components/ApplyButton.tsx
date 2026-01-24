@@ -3,16 +3,16 @@ import { applyForJob } from "@/actions/jobs"
 import Link from "next/link";
 import { useActionState, useTransition } from "react";
 
-const ApplyButton = ({ jobId }: { jobId: string | undefined }) => {
+const ApplyButton = ({ jobId }: { jobId: string }) => {
     const applyForJobWithId = applyForJob.bind(null, jobId);
     const [state, formAction] = useActionState(applyForJobWithId, null);
-    
+
     const [isApplying, startTransition] = useTransition();
 
     if (state?.success) {
         return (
             <>
-                <p className="text-emerald-400 mt-2 text-center">Application submitted successfully!</p>
+                <p className="text-emerald-400 mt-2 text-center">{state?.success}</p>
                 <Link href="/dashboard" className="text-blue-500 hover:text-blue-400 transition-colors duration-200 underline mt-1 text-center block text-sm">Check your applications</Link>
             </>
         )

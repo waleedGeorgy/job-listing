@@ -1,8 +1,10 @@
 "use client"
 import Link from "next/link"
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { signOut, useSession } from "next-auth/react"
+import NoUserImage from "@/public/no-user-image.png"
 
 const Navbar = () => {
     const { data: session } = useSession();
@@ -40,6 +42,10 @@ const Navbar = () => {
                         <Link href="/jobs/add" className="text-sm hover:text-emerald-500 transition-colors duration-200">Add a Job</Link>
                         <Link href="/dashboard" className="text-sm hover:text-emerald-500 transition-colors duration-200">Dashboard</Link>
                         <button onClick={logoutAndRefresh} disabled={isLoggingOut} className="text-red-400 text-sm hover:text-red-300 transition-colors duration-200 cursor-pointer disabled:opacity-50 disabled:pointer-events-none">Logout</button>
+                        <div className="flex items-center gap-2 bg-emerald-700 pr-2 rounded-full">
+                            <Image src={session.user?.image || NoUserImage} alt="User Avatar" width={32} height={32} className="rounded-full" />
+                            <p className="text-sm">{session.user?.name}</p>
+                        </div>
                     </>)
                     :
                     (<Link href="/auth/signin" className="text-sm hover:text-emerald-500 transition-colors duration-200">Sign In</Link>)

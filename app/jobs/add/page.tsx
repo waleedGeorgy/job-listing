@@ -10,7 +10,7 @@ const AddJobPage = () => {
 
     return (
         <div className="max-w-xl mx-auto flex flex-col">
-            <h2 className="font-roboto text-3xl mb-2 text-center">Post a Job</h2>
+            <h2 className="font-roboto font-semibold text-3xl mb-2 text-center">Post a Job</h2>
             <form className="space-y-5" action={(formData: FormData) => { startTransition(() => formAction(formData)) }}>
                 <div className="flex flex-col gap-2">
                     <div className="flex flex-row items-center justify-between">
