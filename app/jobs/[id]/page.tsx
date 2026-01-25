@@ -41,7 +41,13 @@ const JobDetailsPage = async ({ params }: { params: Promise<{ id: string }> }) =
                         to apply for this job
                     </p>)
                     :
-                    (<ApplyButton jobId={jobDetails.id} />)
+                    (session.user.id === jobDetails.postedById ?
+                        (<p className="mt-2 text-center font-semibold text-red-400 animate-pulse">
+                            You cannot apply to your own jobs
+                        </p>)
+                        :
+                        (<ApplyButton jobId={jobDetails.id} />)
+                    )
                 }
             </div>
         </div>

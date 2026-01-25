@@ -10,10 +10,7 @@ const SigninPage = () => {
     const handleSignin = async () => {
         setIsSigningIn(true);
         try {
-            await signIn("github", {
-                callbackUrl: "/",
-                redirect: true
-            });
+            await signIn("github");
         } catch (error) {
             // Add fail state toast
             console.error("Sign in failed:", error);

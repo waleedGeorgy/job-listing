@@ -34,7 +34,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <SessionProvider refetchOnWindowFocus={true}>
+      <SessionProvider>
         <body
           className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable} antialiased font-sans`}
         >

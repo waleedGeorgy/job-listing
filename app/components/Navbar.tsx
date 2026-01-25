@@ -1,7 +1,6 @@
 "use client"
 import Link from "next/link"
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { signOut, useSession } from "next-auth/react"
 import NoUserImage from "@/public/no-user-image.png"
@@ -9,24 +8,15 @@ import NoUserImage from "@/public/no-user-image.png"
 const Navbar = () => {
     const { data: session } = useSession();
 
-    const [isLoggingOut, setIsLoggingOut] = useState(false);
-
-    const router = useRouter();
+    const [isLoggingOut, setIsLoggingOut] = useState<boolean>(false);
 
     const logoutAndRefresh = async () => {
         setIsLoggingOut(true);
         try {
-            await signOut({
-                redirect: false,
-                callbackUrl: "/"
-            });
-            router.refresh();
-            setIsLoggingOut(false);
-            router.push("/");
+            await signOut({ redirect: true, redirectTo: "/auth/signin" });
         } catch (error) {
             // Add fail state toast
             console.error("Sign in failed:", error);
-            setIsLoggingOut(false);
         }
     }
 
