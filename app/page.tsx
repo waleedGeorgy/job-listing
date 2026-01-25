@@ -24,7 +24,7 @@ const HomePage = async () => {
         :
         (<p>Begin by <Link href="/auth/signin" className="text-blue-500 underline underline-offset-2 hover:text-blue-400 transition-colors duration-200">signing in</Link>, to enjoy all the features.</p>)
       }
-      <h3 className="text-xl mt-7 text-left">Recently added jobs</h3>
+      <h3 className="text-xl mt-10 text-left">Recently added jobs</h3>
       <div className="flex flex-row items-center justify-between gap-3">
         {recentJobs.map((recentJob) => (
           <div key={recentJob?.id} className="px-6 py-4 flex flex-col gap-1.5 bg-gray-800 rounded-lg w-full hover:outline-2 hover:outline-emerald-600">
@@ -33,10 +33,10 @@ const HomePage = async () => {
               {recentJob?.salary && (<span className="ml-auto font-roboto text-sm">{recentJob.salary}</span>)}
             </div>
             <p className="text-left text-gray-300">{recentJob?.company}</p>
-            <div className="flex flex-row items-center gap-3">
-              <p className="text-sm text-gray-300">{recentJob?.location}</p>
-              <span className="text-gray-300">•</span>
-              <p className="text-sm text-gray-300">{recentJob?.type.substring(0, 1).toLocaleUpperCase() + recentJob?.type.substring(1)}</p>
+            <div className="flex flex-row items-center gap-3 text-gray-300">
+              <p className="text-sm">{recentJob?.location}</p>
+              <span>•</span>
+              <p className="text-sm">{recentJob?.type.substring(0, 1).toLocaleUpperCase() + recentJob?.type.substring(1)}</p>
             </div>
             <p className="text-left text-sm my-3">{recentJob.description}</p>
             <Link href={`/jobs/${recentJob.id}`} className="text-xs text-blue-500 hover:text-blue-400 transition-all duration-200 w-fit">More details</Link>

@@ -33,7 +33,14 @@ const Navbar = () => {
                         <Link href="/dashboard" className="text-sm hover:text-emerald-500 transition-colors duration-200">Dashboard</Link>
                         <button onClick={logoutAndRefresh} disabled={isLoggingOut} className="text-red-400 text-sm hover:text-red-300 transition-colors duration-200 cursor-pointer disabled:opacity-50 disabled:pointer-events-none">Logout</button>
                         <div className="flex items-center gap-2 bg-emerald-700 pr-2 rounded-full">
-                            <Image src={session.user?.image || NoUserImage} alt="User Avatar" width={30} height={30} className="rounded-full" />
+                            <Image
+                                src={session.user?.image ? session.user.image : NoUserImage}
+                                alt="User avatar"
+                                width={30} height={30}
+                                className="rounded-full"
+                                placeholder="blur"
+                                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+P+/HgAFFAJ/DwLQ0gAAAABJRU5ErkJggg=="
+                            />
                             <p className="text-sm">{session.user?.name}</p>
                         </div>
                     </>)

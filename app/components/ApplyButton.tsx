@@ -1,11 +1,10 @@
 "use client";
-import { applyForJob } from "@/actions/jobs"
 import Link from "next/link";
 import { useActionState, useTransition } from "react";
+import { applyForJob } from "@/actions/jobs";
 
 const ApplyButton = ({ jobId }: { jobId: string }) => {
-    const applyForJobWithId = applyForJob.bind(null, jobId);
-    const [state, formAction] = useActionState(applyForJobWithId, null);
+    const [state, applyForJobWithId] = useActionState(applyForJob.bind(null, jobId), null);
 
     const [isApplying, startTransition] = useTransition();
 
@@ -20,7 +19,7 @@ const ApplyButton = ({ jobId }: { jobId: string }) => {
 
     return (
         <>
-            <form action={() => { startTransition(formAction) }} className="w-3/4 mx-auto">
+            <form action={() => { startTransition(applyForJobWithId) }} className="w-3/4 mx-auto">
                 <button className="mt-4 px-4 py-2 bg-gray-700 hover:bg-emerald-700 font-semibold rounded-md transition-all duration-200 cursor-pointer w-full disabled:opacity-50 disabled:pointer-events-none" disabled={isApplying}>
                     {isApplying ? "Applying..." : "Apply for this job"}
                 </button>

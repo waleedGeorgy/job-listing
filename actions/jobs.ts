@@ -5,7 +5,7 @@ import { prisma } from "@/lib/prisma";
 import { Job, User } from "@prisma/client";
 import { notFound, redirect, RedirectType } from "next/navigation";
 
-type jobWithPostedBy = Job & { postedBy?: User | null };
+type jobWithPostedBy = Job & { postedBy: User };
 
 interface jobPostingResult {
   title?: string;

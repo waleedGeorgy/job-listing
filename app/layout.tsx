@@ -36,7 +36,7 @@ export default function RootLayout({
     <html lang="en">
       <SessionProvider>
         <body
-          className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable} antialiased font-sans`}
+          className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable} antialiased`}
         >
           <Navbar />
           <main className="container mx-auto px-4 py-8">

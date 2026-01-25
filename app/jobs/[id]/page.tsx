@@ -40,14 +40,14 @@ const JobDetailsPage = async ({ params }: { params: Promise<{ id: string }> }) =
                         <Link href="/auth/signin" className="text-blue-500 underline hover:text-blue-400 transition-all duration-200">Sign in</Link>{" "}
                         to apply for this job
                     </p>)
-                    :
-                    (session.user.id === jobDetails.postedById ?
+                    : (<ApplyButton jobId={jobDetails.id} />)
+                    /* (session.user.id === jobDetails.postedById ?
                         (<p className="mt-2 text-center font-semibold text-red-400 animate-pulse">
                             You cannot apply to your own jobs
                         </p>)
                         :
                         (<ApplyButton jobId={jobDetails.id} />)
-                    )
+                    ) */
                 }
             </div>
         </div>
