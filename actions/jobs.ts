@@ -1,9 +1,9 @@
 "use server";
 
+import { notFound, redirect, RedirectType } from "next/navigation";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { Job, User } from "@prisma/client";
-import { notFound, redirect, RedirectType } from "next/navigation";
 
 type jobWithPostedBy = Job & { postedBy: User };
 

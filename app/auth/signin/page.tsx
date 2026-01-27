@@ -1,8 +1,9 @@
 "use client"
+
 import Image from "next/image";
-import GitHubIcon from "@/public/github-icon.png";
 import { signIn } from "next-auth/react";
 import { useState } from "react";
+import GitHubIcon from "@/public/github-icon.png";
 
 const SigninPage = () => {
     const [isSigningIn, setIsSigningIn] = useState(false);

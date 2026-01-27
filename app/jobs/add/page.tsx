@@ -1,6 +1,7 @@
 "use client";
-import { postJob } from "@/actions/jobs";
+
 import { useActionState, useTransition } from "react";
+import { postJob } from "@/actions/jobs";
 
 const AddJobPage = () => {
     const [state, postJobWithResponse] = useActionState(postJob, {});

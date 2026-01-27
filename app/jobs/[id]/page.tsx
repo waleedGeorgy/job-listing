@@ -1,8 +1,8 @@
-import { getJobById } from "@/actions/jobs"
 import Link from "next/link";
 import { formatDistanceToNow } from "date-fns";
-import ApplyButton from "@/app/components/ApplyButton";
 import { auth } from "@/auth";
+import { getJobById } from "@/actions/jobs"
+import ApplyButton from "@/app/components/ApplyButton";
 
 const JobDetailsPage = async ({ params }: { params: Promise<{ id: string }> }) => {
     const session = await auth();

@@ -1,7 +1,7 @@
 import Link from "next/link"
+import { formatDistanceToNow } from "date-fns";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
-import { formatDistanceToNow } from "date-fns";
 
 const DashboardPage = async () => {
     const session = await auth();

@@ -1,5 +1,5 @@
-import { fetchJobs } from "@/actions/jobs"
 import Link from "next/link";
+import { fetchJobs } from "@/actions/jobs"
 
 const JobsPage = async ({ searchParams }:
   { searchParams: Promise<{ [key: string]: string | undefined }> }) => {
