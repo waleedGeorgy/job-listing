@@ -30,9 +30,9 @@ const DashboardPage = async () => {
     ]);
 
     return (
-        <div className="max-w-7xl mx-auto px-6 py-8">
+        <div className="max-w-7xl mx-auto py-8">
             <h2 className="font-roboto text-4xl font-semibold mb-8">Dashboard</h2>
-            <div className="grid gap-8 md:grid-cols-2">
+            <div className="grid gap-6 lg:grid-cols-2">
                 {/* Left side */}
                 <div>
                     <div className="flex items-center justify-between gap-1 mb-6">

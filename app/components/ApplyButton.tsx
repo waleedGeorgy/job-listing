@@ -1,4 +1,5 @@
 "use client";
+
 import Link from "next/link";
 import { useActionState, useTransition } from "react";
 import { applyForJob } from "@/actions/jobs";
